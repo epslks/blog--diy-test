@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/news','NewsController@index');
-Route::get('/save','NewsController@store');
+//Route::get('/save','NewsController@store');
+Route::get('/save','NewsController@storeByModel');
 Route::get('/list','NewsController@show');
 Route::get('/update','NewsController@update');
 Route::get('/delete','NewsController@destroy');
+Route::get('/getJSON','NewsController@readFromFile');

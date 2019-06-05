@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="stylesheet" href="/css/app.css">
         <!-- Styles -->
         <style>
             html, body {
@@ -93,6 +93,20 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                <!-- Standard button -->
+                <button type="button" class="btn btn-default">Default</button>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <button type="button" class="btn btn-primary">Primary</button>
+                <!-- Indicates a successful or positive action -->
+                <button type="button" class="btn btn-success">Success</button>
+                <!-- Contextual button for informational alert messages -->
+                <button type="button" class="btn btn-info">Info</button>
+                <!-- Indicates caution should be taken with this action -->
+                <button type="button" class="btn btn-warning">Warning</button>
+                <!-- Indicates a dangerous or potentially negative action -->
+                <button type="button" class="btn btn-danger">Danger</button>
+                <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+                <button type="button" class="btn btn-link">Link</button>
             </div>
         </div>
     </body>

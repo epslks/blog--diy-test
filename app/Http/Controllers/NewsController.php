@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use News;
+use Storage;
+use App\News;
 use DB; 
 
 class NewsController extends Controller
@@ -17,6 +18,14 @@ class NewsController extends Controller
     {
         //
     }
+
+    public function readFromFile()
+    {
+        $contents = Storage::get('183627.txt');
+        dd($contents);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,6 +48,16 @@ class NewsController extends Controller
         //
         DB::insert('insert into `users` (`name`, `email`, `password`) values (?, ?, ?)', ['陳潔熙','jc861217@gmail.com','cc861217']);
     }
+
+
+    public function storeByModel(Request $request)
+    {
+        $post = new News;
+        $post->name = '李宜靜';
+        $post->email = 'zing@hotmail.com';
+        $post->password = '123456';
+        $post->save();
+    }    
 
     /**
      * Display the specified resource.
