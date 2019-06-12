@@ -17,12 +17,49 @@ class NewsController extends Controller
     public function index()
     {
         //
+        $post = new StudentImportOrg;
     }
 
     public function readFromFile()
     {
-        $contents = Storage::get('183627.txt');
-        dd($contents);
+        $sTime=microtime();
+        $contents = Storage::disk('public')->get('183627.txt');
+        $contentJSON=json_decode($contents);
+        // dd($contentJSON);
+        foreach ($contentJSON as $content) {
+            $student_import_org_basic=$content->基本資料;
+            $student_import_org_basic_string=json_encode($student_import_org_basic,JSON_UNESCAPED_UNICODE);
+
+            $student_import_org_regs=$content->學籍資料; //多筆
+            $student_import_org_regs_string=json_encode($student_import_org_regs,JSON_UNESCAPED_UNICODE);
+
+            if (property_exists($content,'輔導資料')) {
+                $student_import_org_counseling=$content->輔導資料;
+                $student_import_org_counseling_string=json_encode($student_import_org_counseling,JSON_UNESCAPED_UNICODE);
+            }
+            else $student_import_org_counseling_string="";
+
+            if (property_exists($content,'期中資料')) {
+                $student_import_org_current=$content->期中資料;  //多筆 
+                $student_import_org_current_string=json_encode($student_import_org_current,JSON_UNESCAPED_UNICODE);
+            }
+            else $student_import_org_current_string="";
+            //dd($student_import_org_basic);
+
+            $post = new News;
+            $post->student_import_org_basic = $student_import_org_basic_string;
+            $post->student_import_org_regs = $student_import_org_regs_string;
+            $post->student_import_org_counseling = $student_import_org_counseling_string;
+            $post->student_import_org_current = $student_import_org_current_string;            
+            // $post->save();
+            // exit;
+
+        }
+        $eTime=microtime();
+        $wTime="$eTime-$sTime";
+        // dd($wTime);
+        // $contents = Storage::makeDirectory('test_20190612'); //D:\wagon\uwamp\www\ashan\storage\app\test_20190612
+        // dd($contents);       
     }
 
 
