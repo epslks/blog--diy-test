@@ -134,7 +134,7 @@ class NewsController extends Controller
     public function update(Request $request)
     {
         //
-        $updated = DB::update('update users set name = "林金山" where id=1');
+        $updated = DB::update('update users set name = "lin" where id=1');
         return $updated;
     }
 
