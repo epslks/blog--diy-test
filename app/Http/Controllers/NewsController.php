@@ -84,7 +84,7 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         //
-        DB::insert('insert into `users` (`name`, `email`, `password`) values (?, ?, ?)', ['陳潔熙','jc861217@gmail.com','cc861217']);
+        DB::insert('insert into `users` (`name`, `email`, `password`) values (?, ?, ?)', ['aaa','bbccdd@gmail.com','efgh']);
     }
 
 
