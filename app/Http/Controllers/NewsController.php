@@ -46,6 +46,7 @@ class NewsController extends Controller
             else $student_import_org_current_string="";
             //dd($student_import_org_basic);
 
+            //寫入資料表 student_import_org
             $post = new News;
             $post->student_import_org_basic = $student_import_org_basic_string;
             $post->student_import_org_regs = $student_import_org_regs_string;
