@@ -91,8 +91,8 @@ class NewsController extends Controller
     public function storeByModel(Request $request)
     {
         $post = new News;
-        $post->name = '李宜靜';
-        $post->email = 'zing@hotmail.com';
+        $post->name = 'ABCD';
+        $post->email = 'asfdgghj@hotmail.com';
         $post->password = '123456';
         $post->save();
     }    
